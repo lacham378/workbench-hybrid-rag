@@ -1,0 +1,19 @@
+http:
+  routers:
+    hybrid-rag-router:
+      rule: "Host(`localhost`)"
+      entryPoints:
+        - web
+      service: hybrid-rag-service
+
+    dashboard-router:
+      rule: "Host(`localhost`) && PathPrefix(`/dashboard`)"
+      entryPoints:
+        - dashboard
+      service: api@internal
+
+  services:
+    hybrid-rag-service:
+      loadBalancer:
+        servers:
+          - url: "http://hybrid-rag:8080"

@@ -112,3 +112,7 @@ execution:
           target: /mnt/milvus/
           description: Volume for storing the milvus database
           options: ""
+        - type: volume
+          target: /nvwb-shared-volume/
+          description: ""
+          options: volumeName=nvwb-shared-volume
